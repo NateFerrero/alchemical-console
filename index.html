@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ALCHEMICAL CONSOLE</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="root">
+    <!-- =========================== GATEWAY VIEW =========================== -->
+    <section id="gateway" class="view" data-active="true">
+      <header class="gateway-header">
+        <div class="brand">
+          <span class="brand-mark">◇</span>
+          <h1 class="brand-title">ALCHEMICAL CONSOLE</h1>
+        </div>
+        <div class="brand-sub">
+          <span class="tag">// GATEWAY</span>
+          <span class="sep">::</span>
+          <span class="tag">REALITY MANAGER</span>
+        </div>
+      </header>
+
+      <main class="gateway-body">
+        <div class="panel sessions-panel">
+          <div class="panel-head">
+            <span class="panel-label">[ SESSIONS ]</span>
+            <span class="panel-meta" id="session-count">— 0 active</span>
+          </div>
+
+          <ul id="session-list" class="session-list" aria-label="Existing sessions">
+            <!-- populated by JS -->
+          </ul>
+
+          <div id="session-empty" class="empty-state" hidden>
+            <div class="empty-glyph">∅</div>
+            <div class="empty-title">NO REALITIES INSTANTIATED</div>
+            <div class="empty-sub">Create a session to bootstrap a project lattice.</div>
+          </div>
+        </div>
+
+        <div class="panel actions-panel">
+          <div class="panel-head">
+            <span class="panel-label">[ OPERATIONS ]</span>
+          </div>
+
+          <div class="actions">
+            <button class="btn btn-primary" id="btn-new">
+              <span class="btn-glyph">+</span>
+              <span class="btn-label">NEW SESSION</span>
+              <span class="btn-hint">instantiate</span>
+            </button>
+
+            <button class="btn" id="btn-import">
+              <span class="btn-glyph">↑</span>
+              <span class="btn-label">IMPORT</span>
+              <span class="btn-hint">.json</span>
+            </button>
+
+            <input type="file" id="import-input" accept="application/json,.json" hidden />
+          </div>
+        </div>
+      </main>
+
+      <footer class="gateway-footer">
+        <span class="foot-cell">storage :: localStorage</span>
+        <span class="foot-cell">scope :: <code>sessionId:keyName</code></span>
+        <span class="foot-cell" id="foot-status">ready</span>
+      </footer>
+    </section>
+
+    <!-- ========================== DASHBOARD VIEW ========================== -->
+    <section id="dashboard" class="view">
+      <!-- placeholder; will be implemented in next phase -->
+      <header class="dash-header">
+        <div class="brand">
+          <span class="brand-mark">◈</span>
+          <h1 class="brand-title">ALCHEMICAL ENGINE</h1>
+        </div>
+        <div class="dash-meta">
+          <span class="tag" id="dash-session-name">—</span>
+          <span class="sep">::</span>
+          <span class="tag" id="dash-session-id">#000</span>
+          <button class="btn btn-ghost" id="btn-exit">⟵ GATEWAY</button>
+        </div>
+      </header>
+      <div class="dash-placeholder">
+        <div class="placeholder-glyph">◯</div>
+        <div class="placeholder-title">ENGINE OFFLINE</div>
+        <div class="placeholder-sub">Dashboard domains will be implemented in the next phase.</div>
+      </div>
+    </section>
+
+    <!-- ============================== MODAL ============================== -->
+    <div id="modal-root" class="modal-root" hidden>
+      <div class="modal-backdrop" data-modal-close></div>
+      <div class="modal" role="dialog" aria-modal="true">
+        <header class="modal-head">
+          <span class="modal-label" id="modal-title">PROMPT</span>
+          <button class="modal-close" data-modal-close aria-label="Close">×</button>
+        </header>
+        <div class="modal-body" id="modal-body"></div>
+        <footer class="modal-foot" id="modal-foot"></footer>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
